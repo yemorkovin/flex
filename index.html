@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Flexbox в CSS3</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+             .row{
+				display: flex;
+				background: #090;
+				
+			 }
+            .container {
+				position: relative;
+				display: none;
+				align-content: center;
+                border:1px #ccc solid;
+				width: 90%;
+				margin: 0 auto;
+				padding: 10px;
+				background: #eee;
+            }
+
+            .flex-item {
+                text-align:center;
+                font-size: 1em;
+				color: white;
+                height: 300px;
+				margin: 5px;
+            }
+           
+            .color1 {
+				background: #eee;
+				width: 20%;
+			}
+            .color2 {
+				background: #eee;
+				width: 60%;
+			}
+            .color3 {
+				background: #eee;
+				width: 20%;
+			}
+			.img{
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+			@media screen and (max-width:400px){
+				.row{
+					flex-direction: column;
+				}
+				.flex-item{
+					width: 100%;
+				}
+			}
+        </style>
+		
+    </head>
+    <body>
+	<div class="container" id="container">
+		<a class="img"><img src="kr.png" width="30" /></a>
+        <div class="row">
+            <div class="flex-item color1">Flex Item 1</div>
+            <div class="flex-item color2">Flex Item 2</div>
+            <div class="flex-item color3">Flex Item 3</div>
+        </div>
+	</div>
+	<button class="button">Window</button>
+	<script>
+		var win = document.querySelector('button');
+		win.addEventListener('click', function(e){
+			var el = document.getElementById('container');
+			el.style.display = 'block';
+		});
+		var close = document.querySelector('img');
+		close.addEventListener('click', function(e){
+			close.parentNode.parentNode.style.display = 'none';
+		});
+	</script>
+</html>
